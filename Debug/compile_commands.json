@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/bitmap.dir/bin/bitmap.cpp.o -c /Users/andywang/projects/cs437/pong/bin/bitmap.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/bin/bitmap.cpp"
+},
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/geom.dir/bin/geom.cpp.o -c /Users/andywang/projects/cs437/pong/bin/geom.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/bin/geom.cpp"
+},
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/helloworld.dir/bin/helloworld.cpp.o -c /Users/andywang/projects/cs437/pong/bin/helloworld.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/bin/helloworld.cpp"
+},
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/text.dir/bin/text.cpp.o -c /Users/andywang/projects/cs437/pong/bin/text.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/bin/text.cpp"
+}
+]
