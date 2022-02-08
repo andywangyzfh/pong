@@ -1,6 +1,7 @@
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/bitmap.dir
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/geom.dir
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/helloworld.dir
+/Users/andywang/projects/cs437/pong/Debug/CMakeFiles/pong.dir
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/text.dir
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/edit_cache.dir
 /Users/andywang/projects/cs437/pong/Debug/CMakeFiles/rebuild_cache.dir

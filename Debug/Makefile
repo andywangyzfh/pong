@@ -156,6 +156,19 @@ helloworld/fast:
 .PHONY : helloworld/fast
 
 #=============================================================================
+# Target rules for targets named pong
+
+# Build rule for target.
+pong: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pong
+.PHONY : pong
+
+# fast build rule for target.
+pong/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong.dir/build.make CMakeFiles/pong.dir/build
+.PHONY : pong/fast
+
+#=============================================================================
 # Target rules for targets named text
 
 # Build rule for target.
@@ -240,6 +253,30 @@ bin/helloworld.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/bin/helloworld.cpp.s
 .PHONY : bin/helloworld.cpp.s
 
+bin/pong.o: bin/pong.cpp.o
+.PHONY : bin/pong.o
+
+# target to build an object file
+bin/pong.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong.dir/build.make CMakeFiles/pong.dir/bin/pong.cpp.o
+.PHONY : bin/pong.cpp.o
+
+bin/pong.i: bin/pong.cpp.i
+.PHONY : bin/pong.i
+
+# target to preprocess a source file
+bin/pong.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong.dir/build.make CMakeFiles/pong.dir/bin/pong.cpp.i
+.PHONY : bin/pong.cpp.i
+
+bin/pong.s: bin/pong.cpp.s
+.PHONY : bin/pong.s
+
+# target to generate assembly for a file
+bin/pong.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong.dir/build.make CMakeFiles/pong.dir/bin/pong.cpp.s
+.PHONY : bin/pong.cpp.s
+
 bin/text.o: bin/text.cpp.o
 .PHONY : bin/text.o
 
@@ -275,6 +312,7 @@ help:
 	@echo "... bitmap"
 	@echo "... geom"
 	@echo "... helloworld"
+	@echo "... pong"
 	@echo "... text"
 	@echo "... bin/bitmap.o"
 	@echo "... bin/bitmap.i"
@@ -285,6 +323,9 @@ help:
 	@echo "... bin/helloworld.o"
 	@echo "... bin/helloworld.i"
 	@echo "... bin/helloworld.s"
+	@echo "... bin/pong.o"
+	@echo "... bin/pong.i"
+	@echo "... bin/pong.s"
 	@echo "... bin/text.o"
 	@echo "... bin/text.i"
 	@echo "... bin/text.s"

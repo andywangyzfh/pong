@@ -16,6 +16,11 @@
 },
 {
   "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/pong.dir/bin/pong.cpp.o -c /Users/andywang/projects/cs437/pong/bin/pong.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/bin/pong.cpp"
+},
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
   "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/text.dir/bin/text.cpp.o -c /Users/andywang/projects/cs437/pong/bin/text.cpp",
   "file": "/Users/andywang/projects/cs437/pong/bin/text.cpp"
 }

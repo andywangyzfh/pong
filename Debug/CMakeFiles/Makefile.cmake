@@ -57,5 +57,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/bitmap.dir/DependInfo.cmake"
   "CMakeFiles/geom.dir/DependInfo.cmake"
   "CMakeFiles/helloworld.dir/DependInfo.cmake"
+  "CMakeFiles/pong.dir/DependInfo.cmake"
   "CMakeFiles/text.dir/DependInfo.cmake"
   )
