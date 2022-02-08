@@ -5,4 +5,8 @@
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
 
+// Ball size constants
+const int BALL_WIDTH = 15;
+const int BALL_HEIGHT = 15;
+
 #endif /* _CONSTANTS_H_ */

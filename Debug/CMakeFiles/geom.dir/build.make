@@ -96,7 +96,12 @@ geom: /usr/local/lib/libSDL2_image.dylib
 geom: /usr/local/lib/libSDL2_gfx.dylib
 geom: /usr/local/lib/libSDL2_ttf.dylib
 geom: /usr/local/lib/libSDL2_mixer.dylib
+geom: libpong_core.a
 geom: /usr/local/lib/libSDL2main.a
+geom: /usr/local/lib/libSDL2_image.dylib
+geom: /usr/local/lib/libSDL2_gfx.dylib
+geom: /usr/local/lib/libSDL2_ttf.dylib
+geom: /usr/local/lib/libSDL2_mixer.dylib
 geom: /usr/local/lib/libSDL2.dylib
 geom: CMakeFiles/geom.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable geom"

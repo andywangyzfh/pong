@@ -96,7 +96,12 @@ text: /usr/local/lib/libSDL2_image.dylib
 text: /usr/local/lib/libSDL2_gfx.dylib
 text: /usr/local/lib/libSDL2_ttf.dylib
 text: /usr/local/lib/libSDL2_mixer.dylib
+text: libpong_core.a
 text: /usr/local/lib/libSDL2main.a
+text: /usr/local/lib/libSDL2_image.dylib
+text: /usr/local/lib/libSDL2_gfx.dylib
+text: /usr/local/lib/libSDL2_ttf.dylib
+text: /usr/local/lib/libSDL2_mixer.dylib
 text: /usr/local/lib/libSDL2.dylib
 text: CMakeFiles/text.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable text"

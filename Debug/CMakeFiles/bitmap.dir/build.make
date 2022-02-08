@@ -96,7 +96,12 @@ bitmap: /usr/local/lib/libSDL2_image.dylib
 bitmap: /usr/local/lib/libSDL2_gfx.dylib
 bitmap: /usr/local/lib/libSDL2_ttf.dylib
 bitmap: /usr/local/lib/libSDL2_mixer.dylib
+bitmap: libpong_core.a
 bitmap: /usr/local/lib/libSDL2main.a
+bitmap: /usr/local/lib/libSDL2_image.dylib
+bitmap: /usr/local/lib/libSDL2_gfx.dylib
+bitmap: /usr/local/lib/libSDL2_ttf.dylib
+bitmap: /usr/local/lib/libSDL2_mixer.dylib
 bitmap: /usr/local/lib/libSDL2.dylib
 bitmap: CMakeFiles/bitmap.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bitmap"

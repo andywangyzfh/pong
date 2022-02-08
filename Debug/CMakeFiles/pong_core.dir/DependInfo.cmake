@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/andywang/projects/cs437/pong/bin/text.cpp" "CMakeFiles/text.dir/bin/text.cpp.o" "gcc" "CMakeFiles/text.dir/bin/text.cpp.o.d"
+  "/Users/andywang/projects/cs437/pong/src/ball.cpp" "CMakeFiles/pong_core.dir/src/ball.cpp.o" "gcc" "CMakeFiles/pong_core.dir/src/ball.cpp.o.d"
+  "/Users/andywang/projects/cs437/pong/src/vec2d.cpp" "CMakeFiles/pong_core.dir/src/vec2d.cpp.o" "gcc" "CMakeFiles/pong_core.dir/src/vec2d.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/andywang/projects/cs437/pong/Debug/CMakeFiles/pong_core.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

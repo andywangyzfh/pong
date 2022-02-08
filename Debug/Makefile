@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named pong_core
+
+# Build rule for target.
+pong_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pong_core
+.PHONY : pong_core
+
+# fast build rule for target.
+pong_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/build
+.PHONY : pong_core/fast
+
+#=============================================================================
 # Target rules for targets named bitmap
 
 # Build rule for target.
@@ -301,6 +314,54 @@ bin/text.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/text.dir/build.make CMakeFiles/text.dir/bin/text.cpp.s
 .PHONY : bin/text.cpp.s
 
+src/ball.o: src/ball.cpp.o
+.PHONY : src/ball.o
+
+# target to build an object file
+src/ball.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/ball.cpp.o
+.PHONY : src/ball.cpp.o
+
+src/ball.i: src/ball.cpp.i
+.PHONY : src/ball.i
+
+# target to preprocess a source file
+src/ball.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/ball.cpp.i
+.PHONY : src/ball.cpp.i
+
+src/ball.s: src/ball.cpp.s
+.PHONY : src/ball.s
+
+# target to generate assembly for a file
+src/ball.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/ball.cpp.s
+.PHONY : src/ball.cpp.s
+
+src/vec2d.o: src/vec2d.cpp.o
+.PHONY : src/vec2d.o
+
+# target to build an object file
+src/vec2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/vec2d.cpp.o
+.PHONY : src/vec2d.cpp.o
+
+src/vec2d.i: src/vec2d.cpp.i
+.PHONY : src/vec2d.i
+
+# target to preprocess a source file
+src/vec2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/vec2d.cpp.i
+.PHONY : src/vec2d.cpp.i
+
+src/vec2d.s: src/vec2d.cpp.s
+.PHONY : src/vec2d.s
+
+# target to generate assembly for a file
+src/vec2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/vec2d.cpp.s
+.PHONY : src/vec2d.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -313,6 +374,7 @@ help:
 	@echo "... geom"
 	@echo "... helloworld"
 	@echo "... pong"
+	@echo "... pong_core"
 	@echo "... text"
 	@echo "... bin/bitmap.o"
 	@echo "... bin/bitmap.i"
@@ -329,6 +391,12 @@ help:
 	@echo "... bin/text.o"
 	@echo "... bin/text.i"
 	@echo "... bin/text.s"
+	@echo "... src/ball.o"
+	@echo "... src/ball.i"
+	@echo "... src/ball.s"
+	@echo "... src/vec2d.o"
+	@echo "... src/vec2d.i"
+	@echo "... src/vec2d.s"
 .PHONY : help
 
 

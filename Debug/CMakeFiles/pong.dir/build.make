@@ -96,7 +96,12 @@ pong: /usr/local/lib/libSDL2_image.dylib
 pong: /usr/local/lib/libSDL2_gfx.dylib
 pong: /usr/local/lib/libSDL2_ttf.dylib
 pong: /usr/local/lib/libSDL2_mixer.dylib
+pong: libpong_core.a
 pong: /usr/local/lib/libSDL2main.a
+pong: /usr/local/lib/libSDL2_image.dylib
+pong: /usr/local/lib/libSDL2_gfx.dylib
+pong: /usr/local/lib/libSDL2_ttf.dylib
+pong: /usr/local/lib/libSDL2_mixer.dylib
 pong: /usr/local/lib/libSDL2.dylib
 pong: CMakeFiles/pong.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable pong"
