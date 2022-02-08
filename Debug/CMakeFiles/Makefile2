@@ -91,12 +91,12 @@ clean: CMakeFiles/text.dir/clean
 CMakeFiles/pong_core.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=9,10,11 "Built target pong_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=9,10,11,12 "Built target pong_core"
 .PHONY : CMakeFiles/pong_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pong_core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pong_core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/pong_core.dir/rule
@@ -122,7 +122,7 @@ CMakeFiles/bitmap.dir/all: CMakeFiles/pong_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bitmap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bitmap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/bitmap.dir/rule
@@ -148,7 +148,7 @@ CMakeFiles/geom.dir/all: CMakeFiles/pong_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/geom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/geom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/geom.dir/rule
@@ -174,7 +174,7 @@ CMakeFiles/helloworld.dir/all: CMakeFiles/pong_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/helloworld.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/helloworld.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/helloworld.dir/rule
@@ -200,7 +200,7 @@ CMakeFiles/pong.dir/all: CMakeFiles/pong_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pong.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pong.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/pong.dir/rule
@@ -221,12 +221,12 @@ CMakeFiles/pong.dir/clean:
 CMakeFiles/text.dir/all: CMakeFiles/pong_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/text.dir/build.make CMakeFiles/text.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/text.dir/build.make CMakeFiles/text.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=12,13 "Built target text"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=13,14 "Built target text"
 .PHONY : CMakeFiles/text.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/text.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/text.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/pong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/text.dir/rule
