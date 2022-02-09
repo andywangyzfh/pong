@@ -277,6 +277,8 @@ CMakeFiles/pong_core.dir/src/graphics.cpp.o: \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
+  /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/assert.h \
   /Users/andywang/projects/cs437/pong/include/ball.h \
   /Users/andywang/projects/cs437/pong/include/vec2d.h \
   /Users/andywang/projects/cs437/pong/include/constants.h \

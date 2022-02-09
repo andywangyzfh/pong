@@ -2,6 +2,8 @@
 #define _GRAPHICS_H_
 
 #include <SDL.h>
+#include <SDL2_gfxPrimitives.h>
+#include <assert.h>
 
 #include "ball.h"
 #include "constants.h"
@@ -16,6 +18,9 @@ class Graphics {
   /* Draw actor */
   void drawBall(Ball& ball);
   void drawPaddle(Paddle& paddle);
+
+  /* Render map */
+  void initMap();
 
  private:
   SDL_Renderer* renderer;

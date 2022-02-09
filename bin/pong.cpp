@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "constants.h"
+#include "graphics.h"
 
 void raise_error(const std::string& msg) {
   std::cerr << msg << " (" << SDL_GetError() << ")" << std::endl;
@@ -30,6 +31,9 @@ int main(int argc, char** argv) {
       SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (!renderer) raise_error("Unable to create renderer!");
 
+  Graphics* graphics = new Graphics(renderer, window);
+  graphics->initMap();
+
   /*** Main Loop ***/
 
   bool running = true;
@@ -48,15 +52,9 @@ int main(int argc, char** argv) {
         }
       }
 
-      // render
-      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-      SDL_RenderClear(renderer);
-
       /*
-       * TODO: Rendering
+       * TODO: rendering
        */
-
-      SDL_RenderPresent(renderer);
     }
   }
 

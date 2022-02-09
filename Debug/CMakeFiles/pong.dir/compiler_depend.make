@@ -370,8 +370,19 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
-  ../include/constants.h
+  ../include/constants.h \
+  ../include/graphics.h \
+  /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
+  ../include/ball.h \
+  ../include/vec2d.h \
+  ../include/paddle.h
 
+
+../include/vec2d.h:
+
+/usr/local/include/SDL2/SDL2_gfxPrimitives.h:
+
+../include/graphics.h:
 
 ../include/constants.h:
 
@@ -404,6 +415,8 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/errno.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/syslimits.h:
+
+../include/paddle.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_limits.h:
 
@@ -1046,6 +1059,8 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/cdefs.h:
+
+../include/ball.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference:
 

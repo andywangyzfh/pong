@@ -285,6 +285,8 @@ CMakeFiles/pong_core.dir/src/graphics.cpp.o: ../src/graphics.cpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
+  /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/assert.h \
   ../include/ball.h \
   ../include/vec2d.h \
   ../include/constants.h \
@@ -303,6 +305,8 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 ../include/paddle.h:
 
 ../include/constants.h:
+
+/usr/local/include/SDL2/SDL2_gfxPrimitives.h:
 
 /usr/local/include/SDL2/SDL_locale.h:
 
@@ -649,6 +653,8 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ino64_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/assert.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/adxintrin.h:
 
