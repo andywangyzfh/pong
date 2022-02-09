@@ -1,7 +1,7 @@
 #ifndef _VEC2D_H_
 #define _VEC2D_H_
 
-class vec2d {
+class Vec2d {
  public:
   typedef float value_type;
   typedef value_type& reference;
@@ -11,20 +11,20 @@ class vec2d {
   value_type x, y;
 
   /* Constructor */
-  explicit vec2d() : x(0.0f), y(0.0f) {}
-  vec2d(const_reference x, const_reference y);
-  vec2d(const vec2d& v);
+  explicit Vec2d() : x(0.0f), y(0.0f) {}
+  Vec2d(const_reference x, const_reference y);
+  Vec2d(const Vec2d& v);
 
   /* Operators */
-  vec2d operator+(const vec2d& v) const;
-  vec2d operator-(const vec2d& v) const;
-  vec2d operator*(const_reference scale) const;
-  vec2d operator/(const_reference scale) const;
+  Vec2d operator+(const Vec2d& v) const;
+  Vec2d operator-(const Vec2d& v) const;
+  Vec2d operator*(const_reference scale) const;
+  Vec2d operator/(const_reference scale) const;
 
-  vec2d& operator+=(const vec2d& v);
-  vec2d& operator-=(const vec2d& v);
-  vec2d& operator*=(const_reference scale);
-  vec2d& operator/=(const_reference scale);
+  Vec2d& operator+=(const Vec2d& v);
+  Vec2d& operator-=(const Vec2d& v);
+  Vec2d& operator*=(const_reference scale);
+  Vec2d& operator/=(const_reference scale);
 };
 
 #endif /* _VEC2D_H_ */

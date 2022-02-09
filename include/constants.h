@@ -11,6 +11,6 @@ const int BALL_HEIGHT = 15;
 
 // Ball size constants
 const int PADDLE_WIDTH = 15;
-const int PADDLE_HEIGHT = 15;
+const int PADDLE_HEIGHT = 50;
 
 #endif /* _CONSTANTS_H_ */

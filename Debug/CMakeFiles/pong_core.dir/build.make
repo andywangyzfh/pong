@@ -83,10 +83,24 @@ CMakeFiles/pong_core.dir/src/ball.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pong_core.dir/src/ball.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/andywang/projects/cs437/pong/src/ball.cpp -o CMakeFiles/pong_core.dir/src/ball.cpp.s
 
+CMakeFiles/pong_core.dir/src/graphics.cpp.o: CMakeFiles/pong_core.dir/flags.make
+CMakeFiles/pong_core.dir/src/graphics.cpp.o: ../src/graphics.cpp
+CMakeFiles/pong_core.dir/src/graphics.cpp.o: CMakeFiles/pong_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/pong_core.dir/src/graphics.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pong_core.dir/src/graphics.cpp.o -MF CMakeFiles/pong_core.dir/src/graphics.cpp.o.d -o CMakeFiles/pong_core.dir/src/graphics.cpp.o -c /Users/andywang/projects/cs437/pong/src/graphics.cpp
+
+CMakeFiles/pong_core.dir/src/graphics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pong_core.dir/src/graphics.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/andywang/projects/cs437/pong/src/graphics.cpp > CMakeFiles/pong_core.dir/src/graphics.cpp.i
+
+CMakeFiles/pong_core.dir/src/graphics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pong_core.dir/src/graphics.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/andywang/projects/cs437/pong/src/graphics.cpp -o CMakeFiles/pong_core.dir/src/graphics.cpp.s
+
 CMakeFiles/pong_core.dir/src/paddle.cpp.o: CMakeFiles/pong_core.dir/flags.make
 CMakeFiles/pong_core.dir/src/paddle.cpp.o: ../src/paddle.cpp
 CMakeFiles/pong_core.dir/src/paddle.cpp.o: CMakeFiles/pong_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/pong_core.dir/src/paddle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pong_core.dir/src/paddle.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pong_core.dir/src/paddle.cpp.o -MF CMakeFiles/pong_core.dir/src/paddle.cpp.o.d -o CMakeFiles/pong_core.dir/src/paddle.cpp.o -c /Users/andywang/projects/cs437/pong/src/paddle.cpp
 
 CMakeFiles/pong_core.dir/src/paddle.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/pong_core.dir/src/paddle.cpp.s: cmake_force
 CMakeFiles/pong_core.dir/src/vec2d.cpp.o: CMakeFiles/pong_core.dir/flags.make
 CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp
 CMakeFiles/pong_core.dir/src/vec2d.cpp.o: CMakeFiles/pong_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pong_core.dir/src/vec2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pong_core.dir/src/vec2d.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pong_core.dir/src/vec2d.cpp.o -MF CMakeFiles/pong_core.dir/src/vec2d.cpp.o.d -o CMakeFiles/pong_core.dir/src/vec2d.cpp.o -c /Users/andywang/projects/cs437/pong/src/vec2d.cpp
 
 CMakeFiles/pong_core.dir/src/vec2d.cpp.i: cmake_force
@@ -114,6 +128,7 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.s: cmake_force
 # Object files for target pong_core
 pong_core_OBJECTS = \
 "CMakeFiles/pong_core.dir/src/ball.cpp.o" \
+"CMakeFiles/pong_core.dir/src/graphics.cpp.o" \
 "CMakeFiles/pong_core.dir/src/paddle.cpp.o" \
 "CMakeFiles/pong_core.dir/src/vec2d.cpp.o"
 
@@ -121,11 +136,12 @@ pong_core_OBJECTS = \
 pong_core_EXTERNAL_OBJECTS =
 
 libpong_core.a: CMakeFiles/pong_core.dir/src/ball.cpp.o
+libpong_core.a: CMakeFiles/pong_core.dir/src/graphics.cpp.o
 libpong_core.a: CMakeFiles/pong_core.dir/src/paddle.cpp.o
 libpong_core.a: CMakeFiles/pong_core.dir/src/vec2d.cpp.o
 libpong_core.a: CMakeFiles/pong_core.dir/build.make
 libpong_core.a: CMakeFiles/pong_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libpong_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/pong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libpong_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/pong_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pong_core.dir/link.txt --verbose=$(VERBOSE)
 

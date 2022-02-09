@@ -6,6 +6,11 @@
 },
 {
   "directory": "/Users/andywang/projects/cs437/pong/Debug",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/pong_core.dir/src/graphics.cpp.o -c /Users/andywang/projects/cs437/pong/src/graphics.cpp",
+  "file": "/Users/andywang/projects/cs437/pong/src/graphics.cpp"
+},
+{
+  "directory": "/Users/andywang/projects/cs437/pong/Debug",
   "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/andywang/projects/cs437/pong/include -isystem /usr/local/include/SDL2  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -o CMakeFiles/pong_core.dir/src/paddle.cpp.o -c /Users/andywang/projects/cs437/pong/src/paddle.cpp",
   "file": "/Users/andywang/projects/cs437/pong/src/paddle.cpp"
 },

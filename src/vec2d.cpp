@@ -2,48 +2,48 @@
 
 /* Constructors */
 
-vec2d::vec2d(vec2d::const_reference x, vec2d::const_reference y) {
+Vec2d::Vec2d(Vec2d::const_reference x, Vec2d::const_reference y) {
   this->x = x;
   this->y = y;
 }
 
-vec2d::vec2d(const vec2d& v) {
+Vec2d::Vec2d(const Vec2d& v) {
   this->x = v.x;
   this->y = v.y;
 }
 
 /* Operators */
-vec2d vec2d::operator+(const vec2d& v) const { return vec2d(x + v.x, y + v.y); }
+Vec2d Vec2d::operator+(const Vec2d& v) const { return Vec2d(x + v.x, y + v.y); }
 
-vec2d vec2d::operator-(const vec2d& v) const { return vec2d(x - v.x, y - v.y); }
+Vec2d Vec2d::operator-(const Vec2d& v) const { return Vec2d(x - v.x, y - v.y); }
 
-vec2d vec2d::operator*(const_reference scale) const {
-  return vec2d(x * scale, y * scale);
+Vec2d Vec2d::operator*(const_reference scale) const {
+  return Vec2d(x * scale, y * scale);
 }
 
-vec2d vec2d::operator/(const_reference scale) const {
-  return vec2d(x / scale, y / scale);
+Vec2d Vec2d::operator/(const_reference scale) const {
+  return Vec2d(x / scale, y / scale);
 }
 
-vec2d& vec2d::operator+=(const vec2d& v) {
+Vec2d& Vec2d::operator+=(const Vec2d& v) {
   x += v.x;
   y += v.y;
   return *this;
 }
 
-vec2d& vec2d::operator-=(const vec2d& v) {
+Vec2d& Vec2d::operator-=(const Vec2d& v) {
   x -= v.x;
   y -= v.y;
   return *this;
 }
 
-vec2d& vec2d::operator*=(vec2d::const_reference scale) {
+Vec2d& Vec2d::operator*=(Vec2d::const_reference scale) {
   x *= scale;
   y *= scale;
   return *this;
 }
 
-vec2d& vec2d::operator/=(vec2d::const_reference scale) {
+Vec2d& Vec2d::operator/=(Vec2d::const_reference scale) {
   x /= scale;
   y /= scale;
   return *this;
