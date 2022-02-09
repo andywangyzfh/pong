@@ -386,6 +386,30 @@ src/paddle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/paddle.cpp.s
 .PHONY : src/paddle.cpp.s
 
+src/score.o: src/score.cpp.o
+.PHONY : src/score.o
+
+# target to build an object file
+src/score.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/score.cpp.o
+.PHONY : src/score.cpp.o
+
+src/score.i: src/score.cpp.i
+.PHONY : src/score.i
+
+# target to preprocess a source file
+src/score.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/score.cpp.i
+.PHONY : src/score.cpp.i
+
+src/score.s: src/score.cpp.s
+.PHONY : src/score.s
+
+# target to generate assembly for a file
+src/score.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pong_core.dir/build.make CMakeFiles/pong_core.dir/src/score.cpp.s
+.PHONY : src/score.cpp.s
+
 src/vec2d.o: src/vec2d.cpp.o
 .PHONY : src/vec2d.o
 
@@ -448,6 +472,9 @@ help:
 	@echo "... src/paddle.o"
 	@echo "... src/paddle.i"
 	@echo "... src/paddle.s"
+	@echo "... src/score.o"
+	@echo "... src/score.i"
+	@echo "... src/score.s"
 	@echo "... src/vec2d.o"
 	@echo "... src/vec2d.i"
 	@echo "... src/vec2d.s"

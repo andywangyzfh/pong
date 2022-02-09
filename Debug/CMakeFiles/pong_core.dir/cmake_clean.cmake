@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pong_core.dir/src/graphics.cpp.o.d"
   "CMakeFiles/pong_core.dir/src/paddle.cpp.o"
   "CMakeFiles/pong_core.dir/src/paddle.cpp.o.d"
+  "CMakeFiles/pong_core.dir/src/score.cpp.o"
+  "CMakeFiles/pong_core.dir/src/score.cpp.o.d"
   "CMakeFiles/pong_core.dir/src/vec2d.cpp.o"
   "CMakeFiles/pong_core.dir/src/vec2d.cpp.o.d"
   "libpong_core.a"

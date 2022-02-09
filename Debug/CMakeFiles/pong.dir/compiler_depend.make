@@ -373,12 +373,18 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
   ../include/constants.h \
   ../include/graphics.h \
   /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
+  /usr/local/include/SDL2/SDL_ttf.h \
   ../include/ball.h \
   ../include/vec2d.h \
-  ../include/paddle.h
+  ../include/paddle.h \
+  ../include/score.h
 
+
+../include/score.h:
 
 ../include/vec2d.h:
+
+/usr/local/include/SDL2/SDL_ttf.h:
 
 /usr/local/include/SDL2/SDL2_gfxPrimitives.h:
 
