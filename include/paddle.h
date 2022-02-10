@@ -10,7 +10,7 @@ class Paddle {
  public:
   Paddle();
   Paddle(Vec2d& pos, float v);
-  void update(float dt);
+  void update(int dt);
   // void draw(SDL_Renderer* renderer);
 
   Vec2d position;

@@ -112,6 +112,7 @@ int main(int argc, char** argv) {
     }
 
     playerPaddle.update(dt);
+    ball.update(dt);
 
     // Render current frame
     // Clear the window to black

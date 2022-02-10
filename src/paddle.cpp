@@ -4,7 +4,7 @@ Paddle::Paddle() : position(Vec2d()), velocity(0.0f) {}
 
 Paddle::Paddle(Vec2d& pos, float v) : position(pos), velocity(v) {}
 
-void Paddle::update(float dt) {
+void Paddle::update(int dt) {
   // update position
   position.y += velocity * dt;
   // check if out of boundary

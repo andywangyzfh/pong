@@ -1,18 +1,14 @@
 #include "ball.h"
 
-Ball::Ball() { position = Vec2d(); }
+/* Constructors */
 
-Ball::Ball(Vec2d& pos) : position(pos) {
-  // rect.x = static_cast<int>(pos.x);
-  // rect.y = static_cast<int>(pos.y);
-  // rect.w = BALL_WIDTH;
-  // rect.h = BALL_HEIGHT;
-}
+Ball::Ball() : position(Vec2d(0, 0)), velocity(Vec2d(0, 0)) {}
 
-void Ball::update(Vec2d& pos) { position = pos; }
+Ball::Ball(Vec2d& pos) : position(pos), velocity(Vec2d(0, 0)) {}
 
-// void Ball::draw(SDL_Renderer* renderer) {
-//   rect.x = static_cast<int>(position.x);
-//   rect.y = static_cast<int>(position.y);
-//   SDL_RenderFillRect(renderer, &rect);
-// }
+Ball::Ball(Vec2d& pos, Vec2d v) : position(pos), velocity(v) {}
+
+/**
+ * Update ball's position according to delta time
+ */
+void Ball::update(int dt) { position += velocity * dt; }

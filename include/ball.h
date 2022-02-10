@@ -10,13 +10,13 @@ class Ball {
  public:
   /* Members */
   Vec2d position;
-  // SDL_Rect rect{};
+  Vec2d velocity;
 
   /* Constructor */
   Ball();
   Ball(Vec2d& pos);
-  void update(Vec2d& pos);
-  // void draw(SDL_Renderer* renderer);
+  Ball(Vec2d& pos, Vec2d v);
+  void update(int dt);
 };
 
 #endif /* _BALL_H_ */
