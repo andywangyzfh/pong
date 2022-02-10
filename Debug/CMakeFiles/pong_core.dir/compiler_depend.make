@@ -385,6 +385,7 @@ CMakeFiles/pong_core.dir/src/graphics.cpp.o: ../src/graphics.cpp \
 
 CMakeFiles/pong_core.dir/src/paddle.cpp.o: ../src/paddle.cpp \
   ../include/paddle.h \
+  ../include/constants.h \
   ../include/vec2d.h
 
 CMakeFiles/pong_core.dir/src/score.cpp.o: ../src/score.cpp \

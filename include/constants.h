@@ -9,8 +9,9 @@ const int SCREEN_HEIGHT = 768;
 const int BALL_WIDTH = 15;
 const int BALL_HEIGHT = 15;
 
-// Ball size constants
+// Paddle constants
 const int PADDLE_WIDTH = 15;
 const int PADDLE_HEIGHT = 50;
+const float PADDLE_VELOCITY = 0.5f;
 
 #endif /* _CONSTANTS_H_ */

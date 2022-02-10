@@ -52,12 +52,22 @@ int main(int argc, char** argv) {
   Ball ball(center);
   graphics->drawBall(ball);
 
+  // Draw paddle
+  Vec2d aiPos(40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
+  Vec2d playerPos(SCREEN_WIDTH - 40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
+  Paddle aiPaddle(aiPos, 0.0f);
+  Paddle playerPaddle(playerPos, 0.0f);
+  graphics->drawPaddle(aiPaddle);
+  graphics->drawPaddle(playerPaddle);
+
   // Draw score
   Score score;
-  // std::cout << score.playerScore << " " << score.aiScore << std::endl;
   graphics->updateScore(score);
 
+  // Render all
   SDL_RenderPresent(renderer);
+
+  int dt = 0;
 
   /*** Main Loop ***/
 
@@ -65,22 +75,59 @@ int main(int argc, char** argv) {
   SDL_Event e;
   // While application is running
   while (running) {
+    // Get start time
+    auto start = SDL_GetTicks64();
+
+    bool paddleDown = false, paddleUp = false;
+
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
       // User requests quit
       if (e.type == SDL_QUIT) running = false;
-
       // User presses a key
+      // TODO: update key press events to key states
       else if (e.type == SDL_KEYDOWN) {
         if (e.key.keysym.sym == SDLK_q || e.key.keysym.sym == SDLK_ESCAPE) {
           running = false;
+        } else if (e.key.keysym.sym == SDLK_LEFT) {
+          paddleDown = true;
+        } else if (e.key.keysym.sym == SDLK_RIGHT) {
+          paddleUp = true;
+        }
+      } else if (e.type == SDL_KEYUP) {
+        if (e.key.keysym.sym == SDLK_LEFT) {
+          paddleDown = false;
+        } else if (e.key.keysym.sym == SDLK_LEFT) {
+          paddleUp = false;
         }
       }
-
-      /*
-       * TODO: rendering
-       */
     }
+    // Update paddle speed according to the direction
+    if (paddleUp) {
+      playerPaddle.velocity = -PADDLE_VELOCITY;
+    } else if (paddleDown) {
+      playerPaddle.velocity = PADDLE_VELOCITY;
+    } else {
+      playerPaddle.velocity = 0.0f;
+    }
+
+    playerPaddle.update(dt);
+
+    // Render current frame
+    // Clear the window to black
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+
+    // Set the draw color to be white
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+
+    graphics->initMap();
+    graphics->drawBall(ball);
+    graphics->drawPaddle(aiPaddle);
+    graphics->drawPaddle(playerPaddle);
+    SDL_RenderPresent(renderer);
+
+    dt = SDL_GetTicks64() - start;
   }
 
   /*** Clean Up ***/

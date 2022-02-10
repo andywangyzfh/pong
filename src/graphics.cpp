@@ -95,11 +95,13 @@ void Graphics::updateScore(Score& score) {
       font, std::to_string(score.playerScore).c_str(), color);
   aiText =
       TTF_RenderText_Solid(font, std::to_string(score.aiScore).c_str(), color);
+  // TODO: catch ttf error
   // if (!playerText || !aiText) raise_ttf_error("Unable to render text!");
 
   // convert to texture
   playerTexture = SDL_CreateTextureFromSurface(renderer, playerText);
   aiTexture = SDL_CreateTextureFromSurface(renderer, aiText);
+  // TODO: catch error
   // if (!playerTexture || !aiTexture)
   //   raise_ttf_error("Unable to create texture from surface!");
 

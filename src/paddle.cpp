@@ -1,15 +1,15 @@
 #include "paddle.h"
 
-Paddle::Paddle() : position(Vec2d()) {}
+Paddle::Paddle() : position(Vec2d()), velocity(0.0f) {}
 
-Paddle::Paddle(Vec2d& pos) : position(pos) {
-  // rect.x = static_cast<int>(pos.x);
-  // rect.y = static_cast<int>(pos.y);
-  // rect.w = PADDLE_WIDTH;
-  // rect.h = PADDLE_HEIGHT;
+Paddle::Paddle(Vec2d& pos, float v) : position(pos), velocity(v) {}
+
+void Paddle::update(float dt) {
+  // update position
+  position.y += velocity * dt;
+  // check if out of boundary
+  if (position.y < 0)
+    position.y = 0;
+  else if (position.y > SCREEN_HEIGHT - PADDLE_HEIGHT)
+    position.y = SCREEN_HEIGHT - PADDLE_HEIGHT;
 }
-
-// void Paddle::draw(SDL_Renderer* renderer) {
-//   rect.x = static_cast<int>(position.x);
-//   rect.y = static_cast<int>(position.y);
-// }
