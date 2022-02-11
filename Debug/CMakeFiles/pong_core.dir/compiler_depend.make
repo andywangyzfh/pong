@@ -388,6 +388,13 @@ CMakeFiles/pong_core.dir/src/paddle.cpp.o: ../src/paddle.cpp \
   ../include/constants.h \
   ../include/vec2d.h
 
+CMakeFiles/pong_core.dir/src/physics.cpp.o: ../src/physics.cpp \
+  ../include/physics.h \
+  ../include/ball.h \
+  ../include/vec2d.h \
+  ../include/paddle.h \
+  ../include/constants.h
+
 CMakeFiles/pong_core.dir/src/score.cpp.o: ../src/score.cpp \
   ../include/score.h
 
@@ -399,9 +406,13 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 
 ../src/score.cpp:
 
+../include/physics.h:
+
 ../include/score.h:
 
 ../include/constants.h:
+
+../src/physics.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale:
 

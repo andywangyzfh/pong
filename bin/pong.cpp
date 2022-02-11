@@ -5,6 +5,7 @@
 
 #include "constants.h"
 #include "graphics.h"
+#include "physics.h"
 
 void raise_error(const std::string& msg) {
   std::cerr << msg << " (" << SDL_GetError() << ")" << std::endl;
@@ -113,6 +114,12 @@ int main(int argc, char** argv) {
 
     playerPaddle.update(dt);
     ball.update(dt);
+
+    // Check collision
+    if (collideWithPaddle(ball, playerPaddle) ||
+        collideWithPaddle(ball, aiPaddle)) {
+      ball.velocity.x *= -1;
+    }
 
     // Render current frame
     // Clear the window to black

@@ -4,7 +4,7 @@
 
 Ball::Ball() : position(Vec2d(0, 0)), velocity(Vec2d(0, 0)) {}
 
-Ball::Ball(Vec2d& pos) : position(pos), velocity(Vec2d(0, 0)) {}
+Ball::Ball(Vec2d& pos) : position(pos), velocity(Vec2d(1, 0)) {}
 
 Ball::Ball(Vec2d& pos, Vec2d v) : position(pos), velocity(v) {}
 

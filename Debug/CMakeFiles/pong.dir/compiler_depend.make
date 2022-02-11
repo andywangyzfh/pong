@@ -377,8 +377,11 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
   ../include/ball.h \
   ../include/vec2d.h \
   ../include/paddle.h \
-  ../include/score.h
+  ../include/score.h \
+  ../include/physics.h
 
+
+../include/physics.h:
 
 ../include/score.h:
 
