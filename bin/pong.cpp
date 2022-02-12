@@ -120,6 +120,11 @@ int main(int argc, char** argv) {
       continue;
     }
 
+    // Check if the window is minimized. If so, pause the game.
+    if (SDL_GetWindowFlags(window) & SDL_WINDOW_MINIMIZED) {
+      paused = true;
+    }
+
     // Render paused message if not rendered
     if (paused) {
       if (!pauseMessageRendered) {
