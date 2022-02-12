@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include <stdio.h>
 
 #include <iostream>
@@ -21,7 +22,8 @@ int main(int argc, char** argv) {
   /*** Initialization ***/
 
   // Initialize SDL
-  if (SDL_Init(SDL_INIT_VIDEO) < 0) raise_error("SDL could not initialize!");
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+    raise_error("SDL could not initialize!");
 
   // Create window
   SDL_Window* window =
@@ -45,7 +47,14 @@ int main(int argc, char** argv) {
   TTF_Font* smallFont = TTF_OpenFont("../resource/Arial.ttf", 30);
   TTF_Font* titleFont =
       TTF_OpenFont("../resource/Comfortaa-VariableFont_wght.ttf", 50);
-  if (!font || !smallFont || !titleFont) raise_error("Unable to open font!");
+  if (!font || !smallFont || !titleFont)
+    raise_ttf_error("Unable to open font!");
+
+  // Init audio
+  Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+  Mix_Chunk* paddleSound = Mix_LoadWAV("../resource/paddle.wav");
+  Mix_Chunk* wallSound = Mix_LoadWAV("../resource/wall.wav");
+  if (!paddleSound || !wallSound) raise_error("Unable to load audio!");
 
   // Initialize graphics class
   Graphics* graphics =
@@ -180,6 +189,15 @@ int main(int argc, char** argv) {
     ball.processCollision(cpAI);
     ball.processCollision(cpWall);
 
+    // Play sound
+    if (cpPlayer.type != CollisionType::None ||
+        cpAI.type != CollisionType::None) {
+      Mix_PlayChannel(-1, paddleSound, 0);
+    }
+    if (cpWall.type != CollisionType::None) {
+      Mix_PlayChannel(-1, wallSound, 0);
+    }
+
     // Update score if left/right wall is hit
     if (cpWall.type == CollisionType::Left) {
       score.goal(1);
@@ -199,8 +217,10 @@ int main(int argc, char** argv) {
     // updated ball & paddles.
     if (score.aiScore >= 11) {
       graphics->displayResult(0);
+      ball.velocity = Vec2d(0, 0);
     } else if (score.playerScore >= 11) {
       graphics->displayResult(1);
+      ball.velocity = Vec2d(0, 0);
     } else {
       graphics->initMap();
       graphics->drawBall(ball);
@@ -215,6 +235,11 @@ int main(int argc, char** argv) {
   }
 
   /*** Clean Up ***/
+
+  // Destroy audio
+  Mix_FreeChunk(paddleSound);
+  Mix_FreeChunk(wallSound);
+  Mix_Quit();
 
   // Destroy renderer
   SDL_DestroyRenderer(renderer);
