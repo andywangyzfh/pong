@@ -16,10 +16,12 @@
 /* constructors */
 Graphics::Graphics() : renderer(nullptr), window(nullptr), font(nullptr){};
 
-Graphics::Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font) {
+Graphics::Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
+                   TTF_Font* titleFont) {
   this->renderer = renderer;
   this->window = window;
   this->font = font;
+  this->titleFont = titleFont;
 }
 
 // /**
@@ -106,8 +108,37 @@ void Graphics::updateScore(Score& score) {
   //   raise_ttf_error("Unable to create texture from surface!");
 
   // draw text
-  playerDst = SDL_Rect{SCREEN_WIDTH / 4, 20, playerText->w, playerText->h};
-  aiDst = SDL_Rect{SCREEN_WIDTH / 4 * 3, 20, aiText->w, aiText->h};
+  playerDst = SDL_Rect{SCREEN_WIDTH / 4 * 3, 20, playerText->w, playerText->h};
+  aiDst = SDL_Rect{SCREEN_WIDTH / 4, 20, aiText->w, aiText->h};
   SDL_RenderCopy(renderer, playerTexture, nullptr, &playerDst);
   SDL_RenderCopy(renderer, aiTexture, nullptr, &aiDst);
+}
+
+/**
+ * Draw the final winning/losing page. winner = 1 if player wins, 0 if ai wins.
+ */
+void Graphics::displayResult(int winner) {
+  assert(font);
+  assert(renderer);
+  // render text
+  SDL_Color color = {255, 255, 255, 255};
+  SDL_Surface* resultText;
+  if (winner == 1) {
+    resultText = TTF_RenderText_Solid(font, "You Win!", color);
+  } else {
+    resultText = TTF_RenderText_Solid(font, "You Lose!", color);
+  }
+  SDL_Surface* instruction =
+      TTF_RenderText_Solid(font, "Press r to restart, q to quit", color);
+  SDL_Texture* resultTexture =
+      SDL_CreateTextureFromSurface(renderer, resultText);
+  SDL_Texture* instructionTexture =
+      SDL_CreateTextureFromSurface(renderer, instruction);
+  SDL_Rect resDst = SDL_Rect{SCREEN_WIDTH / 2 - resultText->w / 2,
+                             SCREEN_HEIGHT / 3, resultText->w, resultText->h};
+  SDL_Rect insDst =
+      SDL_Rect{SCREEN_WIDTH / 2 - instruction->w / 2, SCREEN_HEIGHT / 3 * 2,
+               instruction->w, instruction->h};
+  SDL_RenderCopy(renderer, resultTexture, nullptr, &resDst);
+  SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
 }

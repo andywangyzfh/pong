@@ -19,7 +19,8 @@ class Graphics {
  public:
   /* constructor */
   Graphics();
-  Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font);
+  Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
+           TTF_Font* titleFont);
 
   // /* destructor */
   // ~Graphics();
@@ -34,11 +35,15 @@ class Graphics {
   /* Update Score */
   void updateScore(Score& score);
 
+  /* Draw winning/losing page */
+  void displayResult(int winner);
+
  private:
   /* SDL utils */
   SDL_Renderer* renderer;
   SDL_Window* window;
   TTF_Font* font;
+  TTF_Font* titleFont;
 
   /* score board */
   SDL_Surface* playerText;

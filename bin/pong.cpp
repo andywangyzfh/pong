@@ -43,9 +43,12 @@ int main(int argc, char** argv) {
   // Load font
   TTF_Font* font = TTF_OpenFont("../resource/Arial.ttf", 50);
   if (font == NULL) raise_error("Unable to open font!");
+  TTF_Font* titleFont =
+      TTF_OpenFont("../resource/Comfortaa-VariableFont_wght.ttf", 50);
+  if (font == NULL) raise_error("Unable to open title font!");
 
   // Initialize map
-  Graphics* graphics = new Graphics(renderer, window, font);
+  Graphics* graphics = new Graphics(renderer, window, font, titleFont);
   graphics->initMap();
 
   // Draw ball
@@ -73,6 +76,7 @@ int main(int argc, char** argv) {
   /*** Main Loop ***/
 
   bool running = true;
+  bool paused = false;
   SDL_Event e;
   // While application is running
   while (running) {
@@ -89,15 +93,22 @@ int main(int argc, char** argv) {
       else if (e.type == SDL_KEYDOWN) {
         if (e.key.keysym.sym == SDLK_q || e.key.keysym.sym == SDLK_ESCAPE) {
           running = false;
+        } else if (e.key.keysym.sym == SDLK_p) {
+          paused = !paused;
+        } else if (e.key.keysym.sym == SDLK_d) {
+          score.playerScore = 10;
+        } else if (e.key.keysym.sym == SDLK_f) {
+          score.aiScore = 10;
         }
       }
     }
+    if (paused) continue;
 
     // Get key press
     const Uint8* keystates = SDL_GetKeyboardState(NULL);
-    if (keystates[SDL_SCANCODE_LEFT])
+    if (keystates[SDL_SCANCODE_LEFT] || keystates[SDL_SCANCODE_DOWN])
       paddleDown = true;
-    else if (keystates[SDL_SCANCODE_RIGHT])
+    else if (keystates[SDL_SCANCODE_RIGHT] || keystates[SDL_SCANCODE_UP])
       paddleUp = true;
     else {
       paddleUp = false;
@@ -138,9 +149,9 @@ int main(int argc, char** argv) {
 
     // Update score
     if (cpWall.type == CollisionType::Left) {
-      score.goal(0);
-    } else if (cpWall.type == CollisionType::Right) {
       score.goal(1);
+    } else if (cpWall.type == CollisionType::Right) {
+      score.goal(0);
     }
 
     // Render current frame
@@ -151,11 +162,17 @@ int main(int argc, char** argv) {
     // Set the draw color to be white
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-    graphics->initMap();
-    graphics->drawBall(ball);
-    graphics->drawPaddle(aiPaddle);
-    graphics->drawPaddle(playerPaddle);
-    graphics->updateScore(score);
+    if (score.aiScore >= 11) {
+      graphics->displayResult(0);
+    } else if (score.playerScore >= 11) {
+      graphics->displayResult(1);
+    } else {
+      graphics->initMap();
+      graphics->drawBall(ball);
+      graphics->drawPaddle(aiPaddle);
+      graphics->drawPaddle(playerPaddle);
+      graphics->updateScore(score);
+    }
     SDL_RenderPresent(renderer);
 
     dt = SDL_GetTicks64() - start;
