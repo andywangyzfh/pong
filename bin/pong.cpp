@@ -42,48 +42,39 @@ int main(int argc, char** argv) {
 
   // Load font
   TTF_Font* font = TTF_OpenFont("../resource/Arial.ttf", 50);
-  if (font == NULL) raise_error("Unable to open font!");
   TTF_Font* smallFont = TTF_OpenFont("../resource/Arial.ttf", 30);
-  if (font == NULL) raise_error("Unable to open font!");
   TTF_Font* titleFont =
       TTF_OpenFont("../resource/Comfortaa-VariableFont_wght.ttf", 50);
-  if (font == NULL) raise_error("Unable to open title font!");
+  if (!font || !smallFont || !titleFont) raise_error("Unable to open font!");
 
-  // Initialize map
+  // Initialize graphics class
   Graphics* graphics =
       new Graphics(renderer, window, font, titleFont, smallFont);
-  graphics->initMap();
 
-  // Draw ball
+  // Initialize ball
   Vec2d center(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
   Ball ball(center);
-  graphics->drawBall(ball);
 
-  // Draw paddle
+  // Initialize paddles
   Vec2d aiPos(40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
   Vec2d playerPos(SCREEN_WIDTH - 40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
   Paddle aiPaddle(aiPos, 0.0f);
   Paddle playerPaddle(playerPos, 0.0f);
-  graphics->drawPaddle(aiPaddle);
-  graphics->drawPaddle(playerPaddle);
 
-  // Draw score
+  // Initialize score
   Score score;
-  graphics->updateScore(score);
-
-  // Render all
-  SDL_RenderPresent(renderer);
-
-  int dt = 0;
 
   /*** Main Loop ***/
 
+  // Define flags and utils
   bool running = true;
   bool starting = true;
   bool startingRendered = false;
   bool paused = false;
   bool pauseMessageRendered = false;
   SDL_Event e;
+  int dt = 0;
+
   // While application is running
   while (running) {
     // Get start time
@@ -95,25 +86,29 @@ int main(int argc, char** argv) {
       if (e.type == SDL_QUIT) running = false;
       // User presses a key
       else if (e.type == SDL_KEYDOWN) {
-        if (e.key.keysym.sym == SDLK_q || e.key.keysym.sym == SDLK_ESCAPE) {
+        if (e.key.keysym.sym == SDLK_q ||
+            e.key.keysym.sym == SDLK_ESCAPE) {  // quit
           running = false;
-        } else if (e.key.keysym.sym == SDLK_p) {
+        } else if (e.key.keysym.sym == SDLK_p) {  // pause
           paused = !paused;
           pauseMessageRendered = false;
-        } else if (e.key.keysym.sym == SDLK_r) {
+        } else if (e.key.keysym.sym == SDLK_r) {  // restart
+          // Reset ball & paddles' position
           ball = Ball();
           aiPaddle = Paddle(aiPos, 0.0f);
           playerPaddle = Paddle(playerPos, 0.0f);
           score = Score();
-        } else if (e.key.keysym.sym == SDLK_1) {
+        } else if (e.key.keysym.sym == SDLK_1) {  // difficulty 1
           starting = false;
         }
-      } else if (e.key.keysym.sym == SDLK_d) {  // debug
+      } else if (e.key.keysym.sym == SDLK_d) {  // debug, set player score to 10
         score.playerScore = 10;
-      } else if (e.key.keysym.sym == SDLK_f) {  // debug
+      } else if (e.key.keysym.sym == SDLK_f) {  // debug, set AI score to 10
         score.aiScore = 10;
       }
     }
+
+    // Render starting page if not rendered
     if (starting) {
       if (!startingRendered) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -124,6 +119,8 @@ int main(int argc, char** argv) {
       }
       continue;
     }
+
+    // Render paused message if not rendered
     if (paused) {
       if (!pauseMessageRendered) {
         graphics->displayPause();
@@ -133,7 +130,7 @@ int main(int argc, char** argv) {
       continue;
     }
 
-    // Get key press
+    // Get key press and update paddle direction
     bool paddleDown = false, paddleUp = false;
     const Uint8* keystates = SDL_GetKeyboardState(NULL);
     if (keystates[SDL_SCANCODE_LEFT] || keystates[SDL_SCANCODE_DOWN])
@@ -165,6 +162,7 @@ int main(int argc, char** argv) {
       aiPaddle.velocity = 0;
     }
 
+    // Update paddle position according to dt
     playerPaddle.update(dt);
     aiPaddle.update(dt);
     ball.update(dt);
@@ -177,7 +175,7 @@ int main(int argc, char** argv) {
     ball.processCollision(cpAI);
     ball.processCollision(cpWall);
 
-    // Update score
+    // Update score if left/right wall is hit
     if (cpWall.type == CollisionType::Left) {
       score.goal(1);
     } else if (cpWall.type == CollisionType::Right) {
@@ -192,6 +190,8 @@ int main(int argc, char** argv) {
     // Set the draw color to be white
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
+    // If ai/player achieved 11 points, display winning/losing page, else render
+    // updated ball & paddles.
     if (score.aiScore >= 11) {
       graphics->displayResult(0);
     } else if (score.playerScore >= 11) {
@@ -205,6 +205,7 @@ int main(int argc, char** argv) {
     }
     SDL_RenderPresent(renderer);
 
+    // Update dt
     dt = SDL_GetTicks64() - start;
   }
 

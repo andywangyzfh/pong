@@ -130,7 +130,7 @@ void Graphics::displayResult(int winner) {
     resultText = TTF_RenderText_Solid(font, "You Lose!", color);
   }
   SDL_Surface* instruction =
-      TTF_RenderText_Solid(font, "Press r to restart, q to quit", color);
+      TTF_RenderText_Solid(smallFont, "Press R to restart, Q to quit", color);
   SDL_Texture* resultTexture =
       SDL_CreateTextureFromSurface(renderer, resultText);
   SDL_Texture* instructionTexture =
