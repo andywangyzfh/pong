@@ -3,6 +3,7 @@
 
 CMakeFiles/pong_core.dir/src/ball.cpp.o: ../src/ball.cpp \
   ../include/ball.h \
+  ../include/constants.h \
   ../include/vec2d.h
 
 CMakeFiles/pong_core.dir/src/graphics.cpp.o: ../src/graphics.cpp \
@@ -378,8 +379,8 @@ CMakeFiles/pong_core.dir/src/graphics.cpp.o: ../src/graphics.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
   ../include/ball.h \
-  ../include/vec2d.h \
   ../include/constants.h \
+  ../include/vec2d.h \
   ../include/paddle.h \
   ../include/score.h
 
@@ -391,9 +392,9 @@ CMakeFiles/pong_core.dir/src/paddle.cpp.o: ../src/paddle.cpp \
 CMakeFiles/pong_core.dir/src/physics.cpp.o: ../src/physics.cpp \
   ../include/physics.h \
   ../include/ball.h \
+  ../include/constants.h \
   ../include/vec2d.h \
-  ../include/paddle.h \
-  ../include/constants.h
+  ../include/paddle.h
 
 CMakeFiles/pong_core.dir/src/score.cpp.o: ../src/score.cpp \
   ../include/score.h
@@ -409,8 +410,6 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 ../include/physics.h:
 
 ../include/score.h:
-
-../include/constants.h:
 
 ../src/physics.cpp:
 
@@ -872,6 +871,14 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_ctermid.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/errno.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/mmintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/resource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_null.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
 
 /usr/local/include/SDL2/SDL_main.h:
@@ -939,14 +946,6 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 /Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/wbnoinvdintrin.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/errno.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/mmintrin.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/resource.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_null.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__errc:
 
@@ -1054,26 +1053,6 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/machine/endian.h:
 
-/usr/local/include/SDL2/SDL_platform.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/xsaveintrin.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/avx512vbmivlintrin.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int32_t.h:
-
-../include/ball.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/stdio.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_types.h:
-
 /usr/local/include/SDL2/SDL_keycode.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
@@ -1089,6 +1068,14 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__mutex_base:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/cdefs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_ctype.h:
+
+../include/ball.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int32_t.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/clflushoptintrin.h:
 
@@ -1111,6 +1098,18 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/appleapiopts.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/TargetConditionals.h:
+
+/usr/local/include/SDL2/SDL_platform.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/xsaveintrin.h:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/13.0.0/include/avx512vbmivlintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_setsize.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_types.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/streambuf:
 
@@ -1148,15 +1147,17 @@ CMakeFiles/pong_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp \
 
 ../include/graphics.h:
 
+../include/constants.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/wchar.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/i386/_types.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_symbol_aliasing.h:
+
 /usr/local/include/SDL2/SDL_loadso.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_u_int8_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_symbol_aliasing.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/libkern/i386/_OSByteOrder.h:
 

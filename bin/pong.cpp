@@ -116,9 +116,12 @@ int main(int argc, char** argv) {
     ball.update(dt);
 
     // Check collision
-    if (collideWithPaddle(ball, playerPaddle) ||
-        collideWithPaddle(ball, aiPaddle)) {
-      ball.velocity.x *= -1;
+    CollisionPoint cpPlayer = collideWithPaddle(ball, playerPaddle);
+    CollisionPoint cpAI = collideWithPaddle(ball, aiPaddle);
+    if (cpPlayer != CollisionPoint::None) {
+      ball.processCollision(cpPlayer);
+    } else if (cpAI != CollisionPoint::None) {
+      ball.processCollision(cpAI);
     }
 
     // Render current frame

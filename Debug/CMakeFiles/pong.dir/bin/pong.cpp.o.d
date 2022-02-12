@@ -367,11 +367,11 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
   /Users/andywang/projects/cs437/pong/include/constants.h \
+  /Users/andywang/projects/cs437/pong/include/vec2d.h \
   /Users/andywang/projects/cs437/pong/include/graphics.h \
   /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
   /usr/local/include/SDL2/SDL_ttf.h \
   /Users/andywang/projects/cs437/pong/include/ball.h \
-  /Users/andywang/projects/cs437/pong/include/vec2d.h \
   /Users/andywang/projects/cs437/pong/include/paddle.h \
   /Users/andywang/projects/cs437/pong/include/score.h \
   /Users/andywang/projects/cs437/pong/include/physics.h

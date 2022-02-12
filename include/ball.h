@@ -3,7 +3,7 @@
 
 // #include <SDL.h>
 
-// #include "constants.h"
+#include "constants.h"
 #include "vec2d.h"
 
 class Ball {
@@ -16,7 +16,10 @@ class Ball {
   Ball();
   Ball(Vec2d& pos);
   Ball(Vec2d& pos, Vec2d v);
+
+  /* Status updates */
   void update(int dt);
+  void processCollision(CollisionPoint& cp);
 };
 
 #endif /* _BALL_H_ */
