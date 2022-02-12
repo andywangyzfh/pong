@@ -372,6 +372,7 @@ CMakeFiles/pong_core.dir/src/graphics.cpp.o: \
   /Users/andywang/projects/cs437/pong/include/ball.h \
   /Users/andywang/projects/cs437/pong/include/collision.h \
   /Users/andywang/projects/cs437/pong/include/vec2d.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cmath \
   /Users/andywang/projects/cs437/pong/include/constants.h \
   /Users/andywang/projects/cs437/pong/include/paddle.h \
   /Users/andywang/projects/cs437/pong/include/score.h

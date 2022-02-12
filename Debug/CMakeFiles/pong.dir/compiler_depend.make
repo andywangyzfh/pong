@@ -372,6 +372,7 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
   ../include/constants.h \
   ../include/vec2d.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cmath \
   ../include/graphics.h \
   /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
   /usr/local/include/SDL2/SDL_ttf.h \
@@ -391,6 +392,8 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
 /usr/local/include/SDL2/SDL2_gfxPrimitives.h:
 
 ../include/graphics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cmath:
 
 /usr/local/include/SDL2/SDL_ttf.h:
 

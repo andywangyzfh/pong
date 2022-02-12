@@ -2,6 +2,8 @@
 #define _BALL_H_
 
 // #include <SDL.h>
+#include <algorithm>
+#include <cstdlib>
 #include <iostream>
 
 #include "collision.h"
@@ -22,6 +24,9 @@ class Ball {
   /* Status updates */
   void update(int dt);
   void processCollision(CollisionPoint& cp);
+
+ private:
+  float getRandomFloat(float lo, float hi);
 };
 
 #endif /* _BALL_H_ */

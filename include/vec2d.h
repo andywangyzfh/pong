@@ -1,6 +1,8 @@
 #ifndef _VEC2D_H_
 #define _VEC2D_H_
 
+#include <cmath>
+
 class Vec2d {
  public:
   typedef float value_type;
@@ -25,6 +27,9 @@ class Vec2d {
   Vec2d& operator-=(const Vec2d& v);
   Vec2d& operator*=(const_reference scale);
   Vec2d& operator/=(const_reference scale);
+
+  /* Calculation */
+  Vec2d& normalize(void);
 };
 
 #endif /* _VEC2D_H_ */

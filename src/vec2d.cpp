@@ -48,3 +48,8 @@ Vec2d& Vec2d::operator/=(Vec2d::const_reference scale) {
   y /= scale;
   return *this;
 }
+
+Vec2d& Vec2d::normalize(void) {
+  *this /= sqrt(x * x + y * y);
+  return *this;
+}

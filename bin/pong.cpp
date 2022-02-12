@@ -117,11 +117,8 @@ int main(int argc, char** argv) {
     if (ball.velocity.x < 0) {
       if (aiPaddle.position.y + PADDLE_HEIGHT / 2 > ball.position.y) {
         aiPaddle.velocity = -AI_VELOCITY;
-        // } else if (aiPaddle.position.y + PADDLE_HEIGHT / 2 < ball.position.y)
-        // { aiPaddle.velocity = AI_VELOCITY;
       } else {
         aiPaddle.velocity = AI_VELOCITY;
-        // aiPaddle.velocity = 0;
       }
     } else {
       aiPaddle.velocity = 0;
