@@ -20,7 +20,7 @@ class Graphics {
   /* constructor */
   Graphics();
   Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
-           TTF_Font* titleFont);
+           TTF_Font* titleFont, TTF_Font* smallFont);
 
   // /* destructor */
   // ~Graphics();
@@ -41,12 +41,16 @@ class Graphics {
   /* Draw paused message */
   void displayPause();
 
+  /* Display starting page */
+  void displayStartingPage();
+
  private:
   /* SDL utils */
   SDL_Renderer* renderer;
   SDL_Window* window;
   TTF_Font* font;
   TTF_Font* titleFont;
+  TTF_Font* smallFont;
 
   /* score board */
   SDL_Surface* playerText;

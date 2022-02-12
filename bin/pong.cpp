@@ -43,12 +43,15 @@ int main(int argc, char** argv) {
   // Load font
   TTF_Font* font = TTF_OpenFont("../resource/Arial.ttf", 50);
   if (font == NULL) raise_error("Unable to open font!");
+  TTF_Font* smallFont = TTF_OpenFont("../resource/Arial.ttf", 30);
+  if (font == NULL) raise_error("Unable to open font!");
   TTF_Font* titleFont =
       TTF_OpenFont("../resource/Comfortaa-VariableFont_wght.ttf", 50);
   if (font == NULL) raise_error("Unable to open title font!");
 
   // Initialize map
-  Graphics* graphics = new Graphics(renderer, window, font, titleFont);
+  Graphics* graphics =
+      new Graphics(renderer, window, font, titleFont, smallFont);
   graphics->initMap();
 
   // Draw ball
@@ -76,6 +79,8 @@ int main(int argc, char** argv) {
   /*** Main Loop ***/
 
   bool running = true;
+  bool starting = true;
+  bool startingRendered = false;
   bool paused = false;
   bool pauseMessageRendered = false;
   SDL_Event e;
@@ -83,8 +88,6 @@ int main(int argc, char** argv) {
   while (running) {
     // Get start time
     auto start = SDL_GetTicks64();
-
-    bool paddleDown = false, paddleUp = false;
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
@@ -102,12 +105,24 @@ int main(int argc, char** argv) {
           aiPaddle = Paddle(aiPos, 0.0f);
           playerPaddle = Paddle(playerPos, 0.0f);
           score = Score();
-        } else if (e.key.keysym.sym == SDLK_d) {  // debug
-          score.playerScore = 10;
-        } else if (e.key.keysym.sym == SDLK_f) {  // debug
-          score.aiScore = 10;
+        } else if (e.key.keysym.sym == SDLK_1) {
+          starting = false;
         }
+      } else if (e.key.keysym.sym == SDLK_d) {  // debug
+        score.playerScore = 10;
+      } else if (e.key.keysym.sym == SDLK_f) {  // debug
+        score.aiScore = 10;
       }
+    }
+    if (starting) {
+      if (!startingRendered) {
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        graphics->displayStartingPage();
+        SDL_RenderPresent(renderer);
+        startingRendered = true;
+      }
+      continue;
     }
     if (paused) {
       if (!pauseMessageRendered) {
@@ -119,6 +134,7 @@ int main(int argc, char** argv) {
     }
 
     // Get key press
+    bool paddleDown = false, paddleUp = false;
     const Uint8* keystates = SDL_GetKeyboardState(NULL);
     if (keystates[SDL_SCANCODE_LEFT] || keystates[SDL_SCANCODE_DOWN])
       paddleDown = true;

@@ -17,11 +17,12 @@
 Graphics::Graphics() : renderer(nullptr), window(nullptr), font(nullptr){};
 
 Graphics::Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
-                   TTF_Font* titleFont) {
+                   TTF_Font* titleFont, TTF_Font* smallFont) {
   this->renderer = renderer;
   this->window = window;
   this->font = font;
   this->titleFont = titleFont;
+  this->smallFont = smallFont;
 }
 
 // /**
@@ -143,6 +144,9 @@ void Graphics::displayResult(int winner) {
   SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
 }
 
+/**
+ * Display pause message in game states
+ */
 void Graphics::displayPause() {
   assert(titleFont);
   assert(renderer);
@@ -157,4 +161,30 @@ void Graphics::displayPause() {
   SDL_Rect dst = SDL_Rect{SCREEN_WIDTH / 2 - text->w / 2,
                           SCREEN_HEIGHT / 2 - text->h / 2, text->w, text->h};
   SDL_RenderCopy(renderer, texture, nullptr, &dst);
+}
+
+/**
+ * Display the starting page
+ */
+void Graphics::displayStartingPage() {
+  assert(font);
+  assert(titleFont);
+  assert(renderer);
+
+  // render text
+  SDL_Color color = {255, 255, 255, 255};
+  SDL_Surface* title;
+  title = TTF_RenderText_Solid(titleFont, "PONG!", color);
+  SDL_Surface* instruction =
+      TTF_RenderText_Solid(smallFont, "Choose difficulty from 1 to 5", color);
+  SDL_Texture* titleTexture = SDL_CreateTextureFromSurface(renderer, title);
+  SDL_Texture* instructionTexture =
+      SDL_CreateTextureFromSurface(renderer, instruction);
+  SDL_Rect resDst = SDL_Rect{SCREEN_WIDTH / 2 - title->w / 2, SCREEN_HEIGHT / 3,
+                             title->w, title->h};
+  SDL_Rect insDst =
+      SDL_Rect{SCREEN_WIDTH / 2 - instruction->w / 2, SCREEN_HEIGHT / 3 * 2,
+               instruction->w, instruction->h};
+  SDL_RenderCopy(renderer, titleTexture, nullptr, &resDst);
+  SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
 }
