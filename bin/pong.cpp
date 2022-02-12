@@ -113,7 +113,22 @@ int main(int argc, char** argv) {
       playerPaddle.velocity = 0.0f;
     }
 
+    // AI paddle movement
+    if (ball.velocity.x < 0) {
+      if (aiPaddle.position.y + PADDLE_HEIGHT / 2 > ball.position.y) {
+        aiPaddle.velocity = -AI_VELOCITY;
+        // } else if (aiPaddle.position.y + PADDLE_HEIGHT / 2 < ball.position.y)
+        // { aiPaddle.velocity = AI_VELOCITY;
+      } else {
+        aiPaddle.velocity = AI_VELOCITY;
+        // aiPaddle.velocity = 0;
+      }
+    } else {
+      aiPaddle.velocity = 0;
+    }
+
     playerPaddle.update(dt);
+    aiPaddle.update(dt);
     ball.update(dt);
 
     // Check collision
