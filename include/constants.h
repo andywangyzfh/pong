@@ -10,14 +10,11 @@ const int SCREEN_HEIGHT = 768;
 // Ball size constants
 const int BALL_WIDTH = 15;
 const int BALL_HEIGHT = 15;
-const float BALL_VELOCITY = 0.75f;
+const float BALL_VELOCITY = 0.3f;
 
 // Paddle constants
 const int PADDLE_WIDTH = 15;
-const int PADDLE_HEIGHT = 50;
+const int PADDLE_HEIGHT = 100;
 const float PADDLE_VELOCITY = 0.5f;
-
-// Collision point
-enum CollisionPoint { None, Upper, Middle, Lower };
 
 #endif /* _CONSTANTS_H_ */

@@ -2,7 +2,9 @@
 #define _BALL_H_
 
 // #include <SDL.h>
+#include <iostream>
 
+#include "collision.h"
 #include "constants.h"
 #include "vec2d.h"
 

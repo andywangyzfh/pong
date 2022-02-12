@@ -86,23 +86,24 @@ int main(int argc, char** argv) {
       // User requests quit
       if (e.type == SDL_QUIT) running = false;
       // User presses a key
-      // TODO: update key press events to key states
       else if (e.type == SDL_KEYDOWN) {
         if (e.key.keysym.sym == SDLK_q || e.key.keysym.sym == SDLK_ESCAPE) {
           running = false;
-        } else if (e.key.keysym.sym == SDLK_LEFT) {
-          paddleDown = true;
-        } else if (e.key.keysym.sym == SDLK_RIGHT) {
-          paddleUp = true;
-        }
-      } else if (e.type == SDL_KEYUP) {
-        if (e.key.keysym.sym == SDLK_LEFT) {
-          paddleDown = false;
-        } else if (e.key.keysym.sym == SDLK_LEFT) {
-          paddleUp = false;
         }
       }
     }
+
+    // Get key press
+    const Uint8* keystates = SDL_GetKeyboardState(NULL);
+    if (keystates[SDL_SCANCODE_LEFT])
+      paddleDown = true;
+    else if (keystates[SDL_SCANCODE_RIGHT])
+      paddleUp = true;
+    else {
+      paddleUp = false;
+      paddleDown = false;
+    }
+
     // Update paddle speed according to the direction
     if (paddleUp) {
       playerPaddle.velocity = -PADDLE_VELOCITY;
@@ -118,10 +119,16 @@ int main(int argc, char** argv) {
     // Check collision
     CollisionPoint cpPlayer = collideWithPaddle(ball, playerPaddle);
     CollisionPoint cpAI = collideWithPaddle(ball, aiPaddle);
-    if (cpPlayer != CollisionPoint::None) {
-      ball.processCollision(cpPlayer);
-    } else if (cpAI != CollisionPoint::None) {
-      ball.processCollision(cpAI);
+    CollisionPoint cpWall = collideWithWall(ball);
+    ball.processCollision(cpPlayer);
+    ball.processCollision(cpAI);
+    ball.processCollision(cpWall);
+
+    // Update score
+    if (cpWall.type == CollisionType::Left) {
+      score.goal(0);
+    } else if (cpWall.type == CollisionType::Right) {
+      score.goal(1);
     }
 
     // Render current frame
@@ -136,6 +143,7 @@ int main(int argc, char** argv) {
     graphics->drawBall(ball);
     graphics->drawPaddle(aiPaddle);
     graphics->drawPaddle(playerPaddle);
+    graphics->updateScore(score);
     SDL_RenderPresent(renderer);
 
     dt = SDL_GetTicks64() - start;

@@ -372,6 +372,7 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: \
   /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
   /usr/local/include/SDL2/SDL_ttf.h \
   /Users/andywang/projects/cs437/pong/include/ball.h \
+  /Users/andywang/projects/cs437/pong/include/collision.h \
   /Users/andywang/projects/cs437/pong/include/paddle.h \
   /Users/andywang/projects/cs437/pong/include/score.h \
   /Users/andywang/projects/cs437/pong/include/physics.h

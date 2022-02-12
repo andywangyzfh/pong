@@ -376,6 +376,7 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
   /usr/local/include/SDL2/SDL2_gfxPrimitives.h \
   /usr/local/include/SDL2/SDL_ttf.h \
   ../include/ball.h \
+  ../include/collision.h \
   ../include/paddle.h \
   ../include/score.h \
   ../include/physics.h
@@ -384,6 +385,8 @@ CMakeFiles/pong.dir/bin/pong.cpp.o: ../bin/pong.cpp \
 ../include/physics.h:
 
 ../include/score.h:
+
+../include/collision.h:
 
 /usr/local/include/SDL2/SDL2_gfxPrimitives.h:
 
