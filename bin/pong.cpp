@@ -83,6 +83,7 @@ int main(int argc, char** argv) {
   bool pauseMessageRendered = false;
   SDL_Event e;
   int dt = 0;
+  float difficulty = 1.0f;
 
   // While application is running
   while (running) {
@@ -108,12 +109,23 @@ int main(int argc, char** argv) {
           playerPaddle = Paddle(playerPos, 0.0f);
           score = Score();
         } else if (e.key.keysym.sym == SDLK_1) {  // difficulty 1
+          difficulty = 0.8;
           starting = false;
+        } else if (e.key.keysym.sym == SDLK_2) {  // difficulty 2
+          difficulty = 1;
+          starting = false;
+        } else if (e.key.keysym.sym == SDLK_3) {  // difficulty 3
+          difficulty = 1.5;
+          starting = false;
+        } else if (e.key.keysym.sym == SDLK_4) {  // difficulty 4
+          difficulty = 2.0;
+          starting = false;
+        } else if (e.key.keysym.sym ==
+                   SDLK_d) {  // debug, set player score to 10
+          score.playerScore = 10;
+        } else if (e.key.keysym.sym == SDLK_f) {  // debug, set AI score to 10
+          score.aiScore = 10;
         }
-      } else if (e.key.keysym.sym == SDLK_d) {  // debug, set player score to 10
-        score.playerScore = 10;
-      } else if (e.key.keysym.sym == SDLK_f) {  // debug, set AI score to 10
-        score.aiScore = 10;
       }
     }
 
@@ -213,8 +225,8 @@ int main(int argc, char** argv) {
     // Set the draw color to be white
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-    // If ai/player achieved 11 points, display winning/losing page, else render
-    // updated ball & paddles.
+    // If ai/player achieved 11 points, display winning/losing page, else
+    // render updated ball & paddles.
     if (score.aiScore >= 11) {
       graphics->displayResult(0);
       ball.velocity = Vec2d(0, 0);
@@ -232,6 +244,7 @@ int main(int argc, char** argv) {
 
     // Update dt
     dt = SDL_GetTicks64() - start;
+    dt *= difficulty;
   }
 
   /*** Clean Up ***/
