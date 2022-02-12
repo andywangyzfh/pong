@@ -142,3 +142,19 @@ void Graphics::displayResult(int winner) {
   SDL_RenderCopy(renderer, resultTexture, nullptr, &resDst);
   SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
 }
+
+void Graphics::displayPause() {
+  assert(titleFont);
+  assert(renderer);
+  // draw background
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_Rect rect{SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 - 50, 400, 100};
+  SDL_RenderFillRect(renderer, &rect);
+  // draw text
+  SDL_Color color = {0, 0, 0, 255};
+  SDL_Surface* text = TTF_RenderText_Solid(titleFont, "paused", color);
+  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, text);
+  SDL_Rect dst = SDL_Rect{SCREEN_WIDTH / 2 - text->w / 2,
+                          SCREEN_HEIGHT / 2 - text->h / 2, text->w, text->h};
+  SDL_RenderCopy(renderer, texture, nullptr, &dst);
+}

@@ -77,6 +77,7 @@ int main(int argc, char** argv) {
 
   bool running = true;
   bool paused = false;
+  bool pauseMessageRendered = false;
   SDL_Event e;
   // While application is running
   while (running) {
@@ -95,14 +96,27 @@ int main(int argc, char** argv) {
           running = false;
         } else if (e.key.keysym.sym == SDLK_p) {
           paused = !paused;
-        } else if (e.key.keysym.sym == SDLK_d) {
+          pauseMessageRendered = false;
+        } else if (e.key.keysym.sym == SDLK_r) {
+          ball = Ball();
+          aiPaddle = Paddle(aiPos, 0.0f);
+          playerPaddle = Paddle(playerPos, 0.0f);
+          score = Score();
+        } else if (e.key.keysym.sym == SDLK_d) {  // debug
           score.playerScore = 10;
-        } else if (e.key.keysym.sym == SDLK_f) {
+        } else if (e.key.keysym.sym == SDLK_f) {  // debug
           score.aiScore = 10;
         }
       }
     }
-    if (paused) continue;
+    if (paused) {
+      if (!pauseMessageRendered) {
+        graphics->displayPause();
+        SDL_RenderPresent(renderer);
+        pauseMessageRendered = true;
+      }
+      continue;
+    }
 
     // Get key press
     const Uint8* keystates = SDL_GetKeyboardState(NULL);

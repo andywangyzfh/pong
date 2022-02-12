@@ -38,6 +38,9 @@ class Graphics {
   /* Draw winning/losing page */
   void displayResult(int winner);
 
+  /* Draw paused message */
+  void displayPause();
+
  private:
   /* SDL utils */
   SDL_Renderer* renderer;
