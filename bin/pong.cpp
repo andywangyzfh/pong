@@ -26,10 +26,11 @@ int main(int argc, char** argv) {
     raise_error("SDL could not initialize!");
 
   // Create window
-  SDL_Window* window =
-      SDL_CreateWindow("Pong", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                       SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+  SDL_Window* window = SDL_CreateWindow(
+      "Pong", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH,
+      SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
   if (window == NULL) raise_error("Window could not be created!");
+  SDL_SetWindowMinimumSize(window, SCREEN_WIDTH, SCREEN_HEIGHT);
 
   // Init TTF
   if (TTF_Init() < 0) raise_ttf_error("Unable to initialize TTF!");
@@ -67,8 +68,11 @@ int main(int argc, char** argv) {
   // Initialize paddles
   Vec2d aiPos(40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
   Vec2d playerPos(SCREEN_WIDTH - 40, SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
+  Vec2d obstaclePos(SCREEN_WIDTH / 2 - PADDLE_WIDTH / 2,
+                    SCREEN_HEIGHT / 2 - PADDLE_HEIGHT / 2);
   Paddle aiPaddle(aiPos, 0.0f);
   Paddle playerPaddle(playerPos, 0.0f);
+  Paddle obstacle(obstaclePos, 0.0f);
 
   // Initialize score
   Score score;
@@ -200,13 +204,19 @@ int main(int argc, char** argv) {
     ball.processCollision(cpPlayer);
     ball.processCollision(cpAI);
     ball.processCollision(cpWall);
+    CollisionPoint cpObstacle;
+    if (difficulty > 1.5) {
+      cpObstacle = collideWithPaddle(ball, obstacle);
+      ball.processCollision(cpObstacle);
+    }
 
     // Play sound
     if (cpPlayer.type != CollisionType::None ||
         cpAI.type != CollisionType::None) {
       Mix_PlayChannel(-1, paddleSound, 0);
     }
-    if (cpWall.type != CollisionType::None) {
+    if (cpWall.type != CollisionType::None ||
+        difficulty > 1.5 && cpObstacle.type != CollisionType::None) {
       Mix_PlayChannel(-1, wallSound, 0);
     }
 
@@ -239,6 +249,7 @@ int main(int argc, char** argv) {
       graphics->drawPaddle(aiPaddle);
       graphics->drawPaddle(playerPaddle);
       graphics->updateScore(score);
+      if (difficulty > 1.5) graphics->drawPaddle(obstacle);
     }
     SDL_RenderPresent(renderer);
 

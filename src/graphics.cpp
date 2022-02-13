@@ -44,10 +44,14 @@ void Graphics::drawBall(Ball& ball) {
   // Draw rectangle
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_Rect rect;
-  rect.x = static_cast<int>(ball.position.x);
-  rect.y = static_cast<int>(ball.position.y);
-  rect.w = BALL_WIDTH;
-  rect.h = BALL_HEIGHT;
+
+  // resize
+  int windowWidth, windowHeight;
+  SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+  rect.x = static_cast<int>(ball.position.x * windowWidth / SCREEN_WIDTH);
+  rect.y = static_cast<int>(ball.position.y * windowHeight / SCREEN_HEIGHT);
+  rect.w = static_cast<int>(BALL_WIDTH * 1.0f * windowWidth / SCREEN_WIDTH);
+  rect.h = static_cast<int>(BALL_HEIGHT * 1.0f * windowHeight / SCREEN_HEIGHT);
   SDL_RenderFillRect(renderer, &rect);
 }
 
@@ -60,10 +64,14 @@ void Graphics::drawPaddle(Paddle& paddle) {
   // Draw rectangle
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_Rect rect;
-  rect.x = static_cast<int>(paddle.position.x);
-  rect.y = static_cast<int>(paddle.position.y);
-  rect.w = PADDLE_WIDTH;
-  rect.h = PADDLE_HEIGHT;
+  // resize
+  int windowWidth, windowHeight;
+  SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+  rect.x = static_cast<int>(paddle.position.x * windowWidth / SCREEN_WIDTH);
+  rect.y = static_cast<int>(paddle.position.y * windowHeight / SCREEN_HEIGHT);
+  rect.w = static_cast<int>(PADDLE_WIDTH * 1.0f * windowWidth / SCREEN_WIDTH);
+  rect.h =
+      static_cast<int>(PADDLE_HEIGHT * 1.0f * windowHeight / SCREEN_HEIGHT);
   SDL_RenderFillRect(renderer, &rect);
 }
 
@@ -78,10 +86,14 @@ void Graphics::initMap() {
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
 
+  // resize
+  int windowWidth, windowHeight;
+  SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
   // Draw net
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-  for (int y = 0; y < SCREEN_HEIGHT; y += 4) {
-    SDL_RenderDrawPoint(renderer, SCREEN_WIDTH / 2, y);
+  for (int y = 0; y < windowHeight; y += 4) {
+    SDL_RenderDrawPoint(renderer, windowWidth / 2, y);
   }
   // SDL_RenderPresent(renderer);
 }
@@ -108,9 +120,13 @@ void Graphics::updateScore(Score& score) {
   // if (!playerTexture || !aiTexture)
   //   raise_ttf_error("Unable to create texture from surface!");
 
+  // resize
+  int windowWidth, windowHeight;
+  SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
   // draw text
-  playerDst = SDL_Rect{SCREEN_WIDTH / 4 * 3, 20, playerText->w, playerText->h};
-  aiDst = SDL_Rect{SCREEN_WIDTH / 4, 20, aiText->w, aiText->h};
+  playerDst = SDL_Rect{windowWidth / 4 * 3, 20, playerText->w, playerText->h};
+  aiDst = SDL_Rect{windowWidth / 4, 20, aiText->w, aiText->h};
   SDL_RenderCopy(renderer, playerTexture, nullptr, &playerDst);
   SDL_RenderCopy(renderer, aiTexture, nullptr, &aiDst);
 }
@@ -135,10 +151,14 @@ void Graphics::displayResult(int winner) {
       SDL_CreateTextureFromSurface(renderer, resultText);
   SDL_Texture* instructionTexture =
       SDL_CreateTextureFromSurface(renderer, instruction);
-  SDL_Rect resDst = SDL_Rect{SCREEN_WIDTH / 2 - resultText->w / 2,
-                             SCREEN_HEIGHT / 3, resultText->w, resultText->h};
+
+  // resize
+  int windowWidth, windowHeight;
+  SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+  SDL_Rect resDst = SDL_Rect{windowWidth / 2 - resultText->w / 2,
+                             windowHeight / 3, resultText->w, resultText->h};
   SDL_Rect insDst =
-      SDL_Rect{SCREEN_WIDTH / 2 - instruction->w / 2, SCREEN_HEIGHT / 3 * 2,
+      SDL_Rect{windowWidth / 2 - instruction->w / 2, windowHeight / 3 * 2,
                instruction->w, instruction->h};
   SDL_RenderCopy(renderer, resultTexture, nullptr, &resDst);
   SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);

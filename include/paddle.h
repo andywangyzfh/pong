@@ -14,6 +14,7 @@ class Paddle {
   // void draw(SDL_Renderer* renderer);
 
   Vec2d position;
+  Vec2d size;
 
   float velocity;
   // SDL_Rect rect{};

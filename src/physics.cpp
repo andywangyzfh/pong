@@ -13,9 +13,9 @@ CollisionPoint collideWithPaddle(Ball& ball, Paddle& paddle) {
   float ballBottom = ball.position.y + BALL_HEIGHT;
 
   float paddleLeft = paddle.position.x;
-  float paddleRight = paddle.position.x + PADDLE_WIDTH;
+  float paddleRight = paddle.position.x + paddle.size.x;
   float paddleTop = paddle.position.y;
-  float paddleBottom = paddle.position.y + PADDLE_HEIGHT;
+  float paddleBottom = paddle.position.y + paddle.size.y;
 
   // No collision
   if (ballLeft >= paddleRight || ballRight <= paddleLeft ||
