@@ -26,6 +26,7 @@ class Ball {
   void processCollision(CollisionPoint& cp);
 
  private:
+  /* Helper function to generate float between lo and hi */
   float getRandomFloat(float lo, float hi);
 };
 

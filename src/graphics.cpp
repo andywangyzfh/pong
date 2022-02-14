@@ -25,15 +25,25 @@ Graphics::Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
   this->smallFont = smallFont;
 }
 
-// /**
-//  * Destructor
-//  */
-// ~Graphics() {
-//   SDL_FreeSurface(playerText);
-//   SDL_FreeSurface(aiText);
-//   SDL_DestroyTexture(playerTexture);
-//   SDL_DestroyTexture(aiTexture);
-// }
+/**
+ * Destructor
+ */
+Graphics::~Graphics() {
+  SDL_FreeSurface(playerText);
+  SDL_FreeSurface(aiText);
+  SDL_FreeSurface(resultText);
+  SDL_FreeSurface(instruction);
+  SDL_FreeSurface(text);
+  SDL_FreeSurface(title);
+  SDL_FreeSurface(description);
+  SDL_DestroyTexture(playerTexture);
+  SDL_DestroyTexture(aiTexture);
+  SDL_DestroyTexture(texture);
+  SDL_DestroyTexture(resultTexture);
+  SDL_DestroyTexture(instructionTexture);
+  SDL_DestroyTexture(titleTexture);
+  SDL_DestroyTexture(descriptionTexture);
+}
 
 /*
  * Draw ball on the map.
@@ -95,7 +105,6 @@ void Graphics::initMap() {
   for (int y = 0; y < windowHeight; y += 4) {
     SDL_RenderDrawPoint(renderer, windowWidth / 2, y);
   }
-  // SDL_RenderPresent(renderer);
 }
 
 /**
@@ -110,15 +119,10 @@ void Graphics::updateScore(Score& score) {
       font, std::to_string(score.playerScore).c_str(), color);
   aiText =
       TTF_RenderText_Solid(font, std::to_string(score.aiScore).c_str(), color);
-  // TODO: catch ttf error
-  // if (!playerText || !aiText) raise_ttf_error("Unable to render text!");
 
   // convert to texture
   playerTexture = SDL_CreateTextureFromSurface(renderer, playerText);
   aiTexture = SDL_CreateTextureFromSurface(renderer, aiText);
-  // TODO: catch error
-  // if (!playerTexture || !aiTexture)
-  //   raise_ttf_error("Unable to create texture from surface!");
 
   // resize
   int windowWidth, windowHeight;
@@ -137,20 +141,18 @@ void Graphics::updateScore(Score& score) {
 void Graphics::displayResult(int winner) {
   assert(font);
   assert(renderer);
+
   // render text
   SDL_Color color = {255, 255, 255, 255};
-  SDL_Surface* resultText;
   if (winner == 1) {
     resultText = TTF_RenderText_Solid(font, "You Win!", color);
   } else {
     resultText = TTF_RenderText_Solid(font, "You Lose!", color);
   }
-  SDL_Surface* instruction =
+  instruction =
       TTF_RenderText_Solid(smallFont, "Press R to restart, Q to quit", color);
-  SDL_Texture* resultTexture =
-      SDL_CreateTextureFromSurface(renderer, resultText);
-  SDL_Texture* instructionTexture =
-      SDL_CreateTextureFromSurface(renderer, instruction);
+  resultTexture = SDL_CreateTextureFromSurface(renderer, resultText);
+  instructionTexture = SDL_CreateTextureFromSurface(renderer, instruction);
 
   // resize
   int windowWidth, windowHeight;
@@ -160,6 +162,7 @@ void Graphics::displayResult(int winner) {
   SDL_Rect insDst =
       SDL_Rect{windowWidth / 2 - instruction->w / 2, windowHeight / 3 * 2,
                instruction->w, instruction->h};
+  // render
   SDL_RenderCopy(renderer, resultTexture, nullptr, &resDst);
   SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
 }
@@ -170,14 +173,16 @@ void Graphics::displayResult(int winner) {
 void Graphics::displayPause() {
   assert(titleFont);
   assert(renderer);
+
   // draw background
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_Rect rect{SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 - 50, 400, 100};
   SDL_RenderFillRect(renderer, &rect);
+
   // draw text
   SDL_Color color = {0, 0, 0, 255};
-  SDL_Surface* text = TTF_RenderText_Solid(titleFont, "paused", color);
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, text);
+  text = TTF_RenderText_Solid(titleFont, "paused", color);
+  texture = SDL_CreateTextureFromSurface(renderer, text);
   SDL_Rect dst = SDL_Rect{SCREEN_WIDTH / 2 - text->w / 2,
                           SCREEN_HEIGHT / 2 - text->h / 2, text->w, text->h};
   SDL_RenderCopy(renderer, texture, nullptr, &dst);
@@ -193,18 +198,16 @@ void Graphics::displayStartingPage() {
 
   // render text
   SDL_Color color = {255, 255, 255, 255};
-  SDL_Surface* title;
   title = TTF_RenderText_Solid(titleFont, "PONG!", color);
-  SDL_Surface* instruction =
+  description =
       TTF_RenderText_Solid(smallFont, "Choose difficulty from 1 to 5", color);
-  SDL_Texture* titleTexture = SDL_CreateTextureFromSurface(renderer, title);
-  SDL_Texture* instructionTexture =
-      SDL_CreateTextureFromSurface(renderer, instruction);
+  titleTexture = SDL_CreateTextureFromSurface(renderer, title);
+  descriptionTexture = SDL_CreateTextureFromSurface(renderer, description);
   SDL_Rect resDst = SDL_Rect{SCREEN_WIDTH / 2 - title->w / 2, SCREEN_HEIGHT / 3,
                              title->w, title->h};
   SDL_Rect insDst =
-      SDL_Rect{SCREEN_WIDTH / 2 - instruction->w / 2, SCREEN_HEIGHT / 3 * 2,
-               instruction->w, instruction->h};
+      SDL_Rect{SCREEN_WIDTH / 2 - description->w / 2, SCREEN_HEIGHT / 3 * 2,
+               description->w, description->h};
   SDL_RenderCopy(renderer, titleTexture, nullptr, &resDst);
-  SDL_RenderCopy(renderer, instructionTexture, nullptr, &insDst);
+  SDL_RenderCopy(renderer, descriptionTexture, nullptr, &insDst);
 }

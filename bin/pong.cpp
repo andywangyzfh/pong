@@ -124,6 +124,9 @@ int main(int argc, char** argv) {
         } else if (e.key.keysym.sym == SDLK_4) {  // difficulty 4
           difficulty = 2.0;
           starting = false;
+        } else if (e.key.keysym.sym == SDLK_5) {  // difficulty 4
+          difficulty = 2.5;
+          starting = false;
         } else if (e.key.keysym.sym ==
                    SDLK_d) {  // debug, set player score to 10
           score.playerScore = 10;
@@ -201,10 +204,10 @@ int main(int argc, char** argv) {
     CollisionPoint cpPlayer = collideWithPaddle(ball, playerPaddle);
     CollisionPoint cpAI = collideWithPaddle(ball, aiPaddle);
     CollisionPoint cpWall = collideWithWall(ball);
+    CollisionPoint cpObstacle;
     ball.processCollision(cpPlayer);
     ball.processCollision(cpAI);
     ball.processCollision(cpWall);
-    CollisionPoint cpObstacle;
     if (difficulty > 1.5) {
       cpObstacle = collideWithPaddle(ball, obstacle);
       ball.processCollision(cpObstacle);

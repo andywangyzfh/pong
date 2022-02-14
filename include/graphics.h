@@ -22,8 +22,8 @@ class Graphics {
   Graphics(SDL_Renderer* renderer, SDL_Window* window, TTF_Font* font,
            TTF_Font* titleFont, TTF_Font* smallFont);
 
-  // /* destructor */
-  // ~Graphics();
+  /* destructor */
+  ~Graphics();
 
   /* Draw actor */
   void drawBall(Ball& ball);
@@ -55,8 +55,18 @@ class Graphics {
   /* score board */
   SDL_Surface* playerText;
   SDL_Surface* aiText;
+  SDL_Surface* resultText;
+  SDL_Surface* instruction;
+  SDL_Surface* text;
+  SDL_Surface* title;
+  SDL_Surface* description;
+  SDL_Texture* texture;
   SDL_Texture* playerTexture;
   SDL_Texture* aiTexture;
+  SDL_Texture* resultTexture;
+  SDL_Texture* instructionTexture;
+  SDL_Texture* titleTexture;
+  SDL_Texture* descriptionTexture;
   SDL_Rect playerDst;
   SDL_Rect aiDst;
 };

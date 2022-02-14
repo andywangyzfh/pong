@@ -8,16 +8,17 @@
 
 class Paddle {
  public:
+  /* constructors */
   Paddle();
   Paddle(Vec2d& pos, float v);
-  void update(int dt);
-  // void draw(SDL_Renderer* renderer);
 
+  /* update paddle's position according to dt */
+  void update(int dt);
+
+  /* members */
   Vec2d position;
   Vec2d size;
-
   float velocity;
-  // SDL_Rect rect{};
 };
 
 #endif /* _PADDLE_H_ */

@@ -3,10 +3,17 @@
 
 class Score {
  public:
+  /* members */
   int playerScore;
   int aiScore;
+
+  /* constructor */
   Score();
+
+  /* someone scores */
   void goal(int player);
+
+  /* reset scores */
   void reset();
 };
 

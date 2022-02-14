@@ -5,9 +5,11 @@
 Ball::Ball() {
   // Start at center of the screen
   position = Vec2d(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-  // generate random starting direction;
+
+  // generate random starting direction
   float a = this->getRandomFloat(-1.0f, 1.0f);
   float b = this->getRandomFloat(-1.0f, 1.0f);
+
   if (abs(a) > abs(b)) {
     velocity.x = a;
     velocity.y = b;
@@ -58,6 +60,7 @@ void Ball::processCollision(CollisionPoint& cp) {
 
   // Hit nothing
   if (cp.type == CollisionType::None) return;
+
   // Hit upper part of paddle
   if (cp.type == CollisionType::Upper) {
     velocity.x *= -1;
@@ -65,33 +68,33 @@ void Ball::processCollision(CollisionPoint& cp) {
     velocity.y += this->getRandomFloat(-0.15, 0.15);
     velocity.normalize();
     velocity *= BALL_VELOCITY;
-    // std::cout << "hit upper paddle" << std::endl;
   }
+
   // Hit lower part of paddle
   else if (cp.type == CollisionType::Lower) {
     velocity.x *= -1;
-    // velocity.y = 0.75 * BALL_VELOCITY;
     velocity.y = abs(velocity.x);
     velocity.y += this->getRandomFloat(-0.15, 0.15);
     velocity.normalize();
     velocity *= BALL_VELOCITY;
-    // std::cout << "hit lower paddle" << std::endl;
   }
+
   // Hit Middle part of paddle
   else if (cp.type == CollisionType::Middle) {
     velocity.x *= -1;
     velocity.y += this->getRandomFloat(-0.15, 0.15);
     velocity.normalize();
     velocity *= BALL_VELOCITY;
-    // std::cout << "hit middle paddle" << std::endl;
   }
+
   // Hit upper wall or lower wall
   else if (cp.type == CollisionType::Wall) {
     velocity.y *= -1;
-    // std::cout << "hit wall" << std::endl;
   }
+
   // Hit left wall or right wall. Someone scored, so reset position and speed.
   else if (cp.type == CollisionType::Left || cp.type == CollisionType::Right) {
+    // reset position
     position = Vec2d(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
     // generate random starting direction;
     float a = this->getRandomFloat(-1.0f, 1.0f);
@@ -105,6 +108,5 @@ void Ball::processCollision(CollisionPoint& cp) {
     }
     velocity.normalize();
     velocity *= BALL_VELOCITY;
-    // std::cout << "scored" << std::endl;
   }
 }

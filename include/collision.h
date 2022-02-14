@@ -6,9 +6,11 @@
 
 #include "vec2d.h"
 
-// Collision point
+// Collision types
 enum CollisionType { None, Upper, Middle, Lower, Wall, Left, Right };
 
+// Collision point stuct. Consists of the type of collision and deviation
+// between the ball and the surface.
 struct CollisionPoint {
   CollisionType type = None;
   Vec2d deviation = Vec2d(0, 0);
